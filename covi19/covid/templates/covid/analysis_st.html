@@ -1,0 +1,152 @@
+{% extends 'covid/main.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/analysis.css' %}">
+<section class"container-fluid">
+        <br>
+        <br>
+        <div class="mb-3">
+            <h1 style="color:black;" class="text-center text-uppercase">Covid19 Statewise Data Analysis</h1>
+        </div>
+        <br>
+        <br>
+        
+    <div class="container">
+    <div class="row">
+    <p class="grph_nm">Covid19 Cases Statewise (Total Confirmed Cases)</p>
+    <img src="{% static 'images/newplot.png' %}" alt="">
+    </div>
+    <div class="row">
+    <p class="grph_nm">Covid19 Cases Statewise (Total Recovered Cases)</p>
+    <img src="{% static 'images/tot_rec_st.png' %}" alt="">
+    </div>
+    <div class="row">
+    <p class="grph_nm">Covid19 Cases Statewise (Total Deaths Cases)</p>
+    <img src="{% static 'images/tot_det_st.png' %}" alt="">
+    </div>
+    <div class="row">
+    <p class="grph_nm">Covid19 Cases Statewise (Total Active Cases)</p>
+    <img src="{% static 'images/tot_act_st.png' %}" alt="">
+    </div> 
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="grph_nm">Covid19 Cases Statewise Map</p>
+            {{ fig_mp | safe }}
+        </div>
+    </div> 
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="grph_nm">Covid19 Cases Statewise</p>
+            {{ fig_ad | safe }}
+        </div>
+    </div> 
+    <br>
+    <br>
+    <form action="{% url 'analysis_st' %}" method="GET">
+    {% csrf_token %}
+        <label class="lab_st" for="st_cd">Enter state code: </label>
+        <input type="text" name="st_cd" id="stcod">
+    </form>
+    <br>
+    <br>
+        <div class="mb-3">
+            <h1 style="color:black;" class="text-center text-uppercase">Covid19 {{ st_cd }} Data Analysis</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="grph_nm">Covid19 Cases Statewise (Total Confirmed Cases)</p>
+                {{ fig1 | safe}}
+            </div> 
+        </div> 
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="grph_nm">Covid19 Cases Statewise (Total Recovered Cases)</p>
+                {{ fig2 | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="grph_nm">Covid19 Cases Statewise (Total Deaths Cases)</p>
+                {{ fig3 | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="grph_nm">Covid19 Cases Statewise (Total Active Cases)</p>
+                {{ fig4 | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="grph_nm">Covid19 Cases Statewise (Daywise Confirmed Cases)</p>
+                {{ fig5 | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="grph_nm">Covid19 Cases Statewise (Daywise Recovered Cases)</p>
+                {{ fig6 | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="grph_nm">Covid19 Cases Statewise (Daywise Deaths Cases)</p>
+                {{ fig7 | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="grph_nm">Covid19 Cases Statewise (Daywise Active Cases)</p>
+                {{ fig8 | safe }}
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-sm-6">
+                <p class="grph_nm">Covid19 - vaccination dose 1</p>
+                {{ fg_v1 | safe }}
+            </div>
+            <div class="col-sm-6">
+                <p class="grph_nm">Covid19 - vaccination dose 2</p>
+                {{ fg_v2 | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <p class="grph_nm">Covid19 - Daywise vaccination dose 1</p>
+                {{ fg_v3 | safe }}
+            </div>
+            <div class="col-sm-6">
+                <p class="grph_nm">Covid19 - Daywise vaccination dose 2</p>
+                {{ fg_v4 | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <p class="grph_nm">Covid19 - total tested</p>
+                {{ fg_tt1 | safe }}
+            </div>
+            <div class="col-sm-6">
+                <p class="grph_nm">Covid19 - Daywise tested</p>
+                {{ fg_dt1 | safe }}
+            </div>
+        </div>
+        {% comment %} <div class="row">
+            <p class="grph_nm">Covid19 Cases in India (Daywise Data)</p>
+            {{ fig6 | safe }}
+        </div> {% endcomment %}
+        
+    </div>
+ 
+        {% comment %} <div>
+    <a href="https://plotly.com/~Rushi396/1/" target="_blank" title="india-data" style="display: block; text-align: center;">
+    <img src="https://plotly.com/~Rushi396/1.png" alt="india-data" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plotly.com/404.png';" /></a>
+    <script data-plotly="Rushi396:1" src="https://plotly.com/embed.js" async></script>
+</div> {% endcomment %}
+
+<script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
+
+</section>
+
+{% endblock content %}
+

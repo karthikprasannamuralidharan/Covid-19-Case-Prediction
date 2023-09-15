@@ -1,0 +1,98 @@
+{% extends 'covid/main.html' %}
+
+{% load static %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" integrity="sha512-d8F1J2kyiRowBB/8/pAWsqUl0wSEOkG5KATkVV4slfblq9VRQ6MyDZVxWl2tWd+mPhuCbpTB4M7uU/x9FlgQ9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js" integrity="sha512-+/4Q+xH9jXbMNJzNt2eMrYv/Zs2rzr4Bu2thfvzlshZBvH1g+VGP55W8b6xfku0c0KknE7qlbBPhDPrHFbgK4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+{% block content %}
+        <section class="CoronaUpdate container-fluid">
+        <div class="mb-3">
+            <h1 style="color:black;" class="text-center text-uppercase">Covid19 Updates</h1>
+        </div>
+        <br>
+        <br>
+        <div class="mb-3">
+        <p style="color:black;" class="text-center lastup line-1 anim-typewriter">Last Updated on {{date}}</p>
+        </div>
+        <br>
+        <div class="d-flex justify-content-around align-items-center">
+            <div>  
+                <h1 class="count">{{totconf}}</h1>
+                <p>Total Confirmed Cases</p>
+            </div>
+            <div>  
+                <h1 class="count">{{totrec}}</h1>
+                <p>Total Recovered Cases</p>
+            </div>
+            <div>  
+                <h1 class="count">{{totdeath}}</h1>
+                <p>Total Death Cases</p>
+            </div>
+        </div>
+        <br>
+        <div class="d-flex justify-content-around align-items-center">
+            <div>  
+                <h1 class="count">{{newconf}}</h1>
+                <p>New Confirmed Cases</p>
+            </div>
+            <div>  
+                <h1 class="count">{{newrec}}</h1>
+                <p>New Recovered Cases</p>
+            </div>
+            <div>  
+                <h1 class="count">{{newdeaths}}</h1>
+                <p>New Death Cases</p>
+            </div>
+        </div>
+        <br>
+        <form action="{% url 'dashboard' %}" method="POST">
+            {% csrf_token %}
+            <label for="data">Choose a data:</label>
+            <select name="data" id="covidata">
+                <option id="world" selected value="worldwide">Worldwide</option>
+                <option id="ind" value="india">India</option>
+                <option id="state" value="statewise">Statewise</option>
+            </select>
+            <br><br>
+            <input type="submit" id="dashsub" value="Submit">
+        </form>
+        <div class="mb-3">
+            <h2 style="color:black;" class="text-center text-uppercase">Worldwide Covid Data</h2>
+        </div>
+        <br>
+    
+<br>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped text-center" id="tb">
+                <tr>
+                    <th>Country</th>
+                    <th>Ccode</th>
+                    <th>NewConfirmed</th>
+                    <th>NewRecovered</th>
+                    <th>NewDeaths</th>
+                    <th>TotalDeaths</th>
+                    <th>TotalConfirmed</th>
+                    <th>TotalRecovered</th>
+                </tr>
+                {% for i in country %}
+                    
+                    <tr>
+                    <td>{{i.Country}}</td>
+                    <td>{{i.CountryCode}}</td>
+                    <td>{{i.NewConfirmed}}</td>
+                    <td>{{i.NewRecovered}}</td>
+                    <td>{{i.NewDeaths}}</td>
+                    <td>{{i.TotalDeaths}}</td>
+                    <td>{{i.TotalConfirmed}}</td>
+                    <td>{{i.TotalRecovered}}</td>
+                 
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        </section>
+
+{% endblock content %}
+

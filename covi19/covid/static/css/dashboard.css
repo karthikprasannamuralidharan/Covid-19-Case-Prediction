@@ -1,0 +1,96 @@
+.CoronaUpdate h1{
+    color:crimson;
+}
+.CoronaUpdate {
+    text-align: center;
+}
+
+.datepicker td, .datepicker th {
+    width: 30px;
+    height: 2.5rem;
+    font-size: 0.85rem;
+    position: relative;
+}
+.lastup{
+    font-size: 40px;
+}
+
+.datepicker {
+    margin-bottom: 3rem;
+    width: 400px;
+}
+
+.datepicker-dropdown {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table{
+    width: 10%;
+    align-content: center;
+    margin-left: 10px;
+    position: relative; 
+    margin-top: 80px; 
+    overflow-x: scroll;
+}
+.arrow{
+    right: 0;
+    position:fixed;
+    bottom: 30px;
+    z-index: 99;
+    border:none;
+}
+.footicon li{
+    display: inline;
+}
+.dropd{
+    float:left;
+}
+.footer {
+  
+    left: 0;
+    top: 100%;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    position: relative;
+  }
+.ftag{
+    display: inline-block;
+    background-color: royalblue;
+    color: black;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+  /* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+/* Global */
+.line-1{
+    position: relative;
+    top: 50%;  
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(39) 1s 1 normal both,
+             blinkTextCursor 500ms steps(39) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: orange;}
+  to{border-right-color: transparent;}
+}

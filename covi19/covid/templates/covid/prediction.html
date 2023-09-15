@@ -1,0 +1,90 @@
+{% extends 'covid/main.html' %}
+{% load static %}
+{% block content %}
+        <div class="mb-3">
+            <h1 style="color:black;" class="text-center text-uppercase">Covid19 Cases Prediction</h1>
+        </div>
+    <div>
+        <h3 style="text-align: center;margin-top:20px;">Linear Regression</h3>
+        <h3 style="margin-left:20px;">Prediction on train data</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Absolute Error: {{MAE_lin_train}}</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Squared Error: {{MSE_lin_train}}</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+                {{ fg1 | safe}}
+        </div>
+    </div>
+    <div>
+        <h3 style="margin-left:20px;">Prediction on test data</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Absolute Error: {{MAE_lin_test}}</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Root Mean Squared Error: {{MSE_lin_test}}</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+                {{ fg2 | safe}}
+        </div>
+    </div>
+
+     <div>
+        <h3 style="text-align: center;margin-top:20px;">Random Forest Regression</h3>
+        <h3 style="margin-left:20px;">Prediction on train data</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Absolute Error: {{MAE_ran_train}}</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Squared Error: {{MSE_ran_train}}</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+                {{ fg3 | safe}}
+        </div>
+    </div>
+
+     <div>
+        <h3 style="text-align: center;margin-top:20px;">Decision Tree Regressor</h3>
+        <h3 style="margin-left:20px;">Prediction on train data</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Absolute Error: {{MAE_dtr_train}}</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Squared Error: {{MSE_dtr_train}}</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+                {{ fg4 | safe}}
+        </div>
+    </div>
+
+     <div>
+        <h3 style="text-align: center;margin-top:20px;">Extra Tree Regressor</h3>
+        <h3 style="margin-left:20px;">Prediction on train data</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Absolute Error: {{MAE_etr_train}}</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Squared Error: {{MSE_etr_train}}</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+                {{ fg5 | safe}}
+        </div>
+    </div>
+     <div>
+        <h3 style="text-align: center;margin-top:20px;">ARIMA</h3>
+        <h3 style="margin-left:20px;">Prediction on data</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Absolute Error: {{MAE_ar}}</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Squared Error: {{MSE_ar}}</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Absolute Error test data: {{MAE_ar_test}}</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Squared Error test data: {{MSE_ar_test}}</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+                {{ f2 | safe}}
+        </div>
+    </div>
+     <div>
+        <h3 style="text-align: center;margin-top:20px;">SARIMA</h3>
+        <h3 style="margin-left:20px;">Prediction on data</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Absolute Error: {{MAE_sr}}</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Squared Error: {{MSE_sr}}</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Absolute Error test data: {{MAE_sr_test}}</h3>
+        <h3 style="margin-left:30px;margin-top:20px;">Mean Squared Error test data: {{MSE_sr_test}}</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+                {{ f1 | safe}}
+        </div>
+    </div>
+{% endblock content %}

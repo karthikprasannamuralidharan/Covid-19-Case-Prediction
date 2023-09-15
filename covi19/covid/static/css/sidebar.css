@@ -1,0 +1,12 @@
+/* .container{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+} */
+.con{
+  background: #6ccea8;
+  width: 100%;
+}
